@@ -2,5 +2,5 @@
 
 public class Base
 {
-    public Guid id { get; set; } = Guid.Empty;
+    public Guid Id { get; set; } = Guid.Empty;
 }

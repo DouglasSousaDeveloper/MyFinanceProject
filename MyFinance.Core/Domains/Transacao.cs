@@ -4,11 +4,15 @@ namespace MyFinance.Core.Domains;
 
 public class Transacao : Base
 {
-    public string descricao { get; set; } = string.Empty;
-    public DateTime data { get; private set; } = DateTime.MinValue;
-    public string tipo { get; private set; } = string.Empty;
-    public decimal valor { get; private set; } = decimal.Zero;
-    public string formaPagamento { get; set; } = string.Empty;
-    public Conta conta { get; set; } = new Conta();
-    public CategoriaTransacao categoria { get; set; } = new CategoriaTransacao();
+    public string Descricao { get; set; } = string.Empty;
+    public DateTime Data { get; private set; } = DateTime.MinValue;
+    public string Tipo { get; private set; } = string.Empty;
+    public decimal Valor { get; private set; } = decimal.Zero;
+    public string FormaPagamento { get; set; } = string.Empty;
+
+    public Guid ContaId { get; set; } = Guid.Empty;
+    public Conta Conta { get; set; } = new Conta();
+
+    public Guid CategoriaId { get; set; } = Guid.Empty;
+    public CategoriaTransacao Categoria { get; set; } = new CategoriaTransacao();
 }
