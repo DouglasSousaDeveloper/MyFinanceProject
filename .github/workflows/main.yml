@@ -30,4 +30,17 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
-      # ... etapas de deploy para produção ...
+      - uses: actions/checkout@v3
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Deploy   
+ to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:   
+
+          name: 'your-app-service-name'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZUREAPPSETTING_PROFILE }}
+          package: ./publish
