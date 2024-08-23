@@ -8,3 +8,4 @@ Esse é o meu mais novo projeto que estou desenvolvendo para colocar em praticas
 - CQRS
 - Entity Framework Core
 - Tests unitarios XUnit
+- Tests integrados XUnit
