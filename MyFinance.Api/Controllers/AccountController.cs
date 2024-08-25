@@ -1,18 +1,21 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using MyFinance.Application.Commands.Account.Create;
+
 namespace MyFinance.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UsersController : ControllerBase
+public class AccountController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public UsersController(IMediator mediator)
+    public AccountController(IMediator mediator)
     {
         _mediator = mediator;
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateUser(UserCreateCommand userCommand)
+    public async Task<IActionResult> CreateAccount(AccountCreateCommand userCommand)
     {
         var result = await _mediator.Send(userCommand);
 

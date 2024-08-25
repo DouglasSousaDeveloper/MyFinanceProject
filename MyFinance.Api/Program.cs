@@ -1,9 +1,9 @@
-using MyFinance.Application.Commands.User;
+using MyFinance.Application.Commands.User.Create;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(config =>
-                config.RegisterServicesFromAssemblyContaining<UserCommand>());
+                config.RegisterServicesFromAssemblyContaining<UserCreateCommand>());
 // Add services to the container.
 
 builder.Services.AddControllers();
