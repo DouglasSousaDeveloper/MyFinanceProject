@@ -1,11 +1,6 @@
-﻿using CSharpFunctionalExtensions;
-using MediatR;
-using MyFinance.Application.ViewModels;
-using System.ComponentModel.DataAnnotations;
+﻿namespace MyFinance.Application.Commands.User;
 
-namespace MyFinance.Application.Commands.User;
-
-public class UserCommand : IRequest<Result<UserVm>>
+public class UserCreateCommand : IRequest<Result<UserVm>>
 {
     #region Validate
     [Required(ErrorMessage = "O Nome é obrigatório.")]
