@@ -1,5 +1,4 @@
-﻿
-namespace MyFinance.Application.Commands.Account.Create;
+﻿namespace MyFinance.Application.Commands.Account;
 
 internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result<string>>
 {

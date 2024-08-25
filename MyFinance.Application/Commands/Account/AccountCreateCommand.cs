@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.Account.Create;
+﻿namespace MyFinance.Application.Commands.Account;
 
 public class AccountCreateCommand : IRequest<Result<string>>
 {

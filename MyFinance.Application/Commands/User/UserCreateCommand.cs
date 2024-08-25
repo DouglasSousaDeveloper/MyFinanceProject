@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.User.Create;
+﻿namespace MyFinance.Application.Commands.User;
 
 public class UserCreateCommand : IRequest<Result<UserVm>>
 {

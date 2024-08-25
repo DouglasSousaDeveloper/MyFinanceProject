@@ -1,4 +1,4 @@
-using MyFinance.Application.Commands.User.Create;
+using MyFinance.Application.Commands.User;
 
 var builder = WebApplication.CreateBuilder(args);
 

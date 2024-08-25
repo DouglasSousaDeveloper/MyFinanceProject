@@ -1,3 +1,5 @@
+using MyFinance.Application.Commands.User;
+
 namespace MyFinance.Api.Controllers;
 
 [ApiController]

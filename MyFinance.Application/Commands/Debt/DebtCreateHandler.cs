@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.Debt.Create;
+﻿namespace MyFinance.Application.Commands.Debt;
 
 internal class DebtCreateHandler : IRequestHandler<DebtCreateCommand, Result<string>>
 {

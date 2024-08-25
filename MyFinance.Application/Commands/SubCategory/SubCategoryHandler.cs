@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.SubCategory.Create;
+﻿namespace MyFinance.Application.Commands.SubCategory;
 
 internal class SubCategoryHandler : IRequestHandler<SubCategoryCreateCommand, Result<string>>
 {

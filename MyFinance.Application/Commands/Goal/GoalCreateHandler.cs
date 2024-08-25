@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.Goal.Create;
+﻿namespace MyFinance.Application.Commands.Goal;
 
 internal class GoalCreateHandler : IRequestHandler<GoalCreateCommand, Result<string>>
 {

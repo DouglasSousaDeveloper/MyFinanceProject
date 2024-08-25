@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.Commands.Transaction.Create;
+﻿namespace MyFinance.Application.Commands.Transaction;
 
 internal class TransactionCreateHandler : IRequestHandler<TransactionCommand, Result<string>>
 {
