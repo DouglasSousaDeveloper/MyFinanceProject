@@ -1,10 +1,12 @@
-using MyFinance.Application.Commands.User;
+using MyFinance.Application.IocApplication;
+using MyFinance.Infrastructure.IocInfrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMediatR(config =>
-                config.RegisterServicesFromAssemblyContaining<UserCreateCommand>());
 // Add services to the container.
+builder.Services
+    .AddCommands()
+    .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

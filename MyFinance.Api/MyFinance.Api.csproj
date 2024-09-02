@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyFinance.Application\MyFinance.Application.csproj" />
+    <ProjectReference Include="..\MyFinance.Core\MyFinance.Core.csproj" />
   </ItemGroup>
 
 </Project>
