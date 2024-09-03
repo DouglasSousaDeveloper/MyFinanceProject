@@ -3,18 +3,8 @@ using MyFinance.Infrastructure.Interfaces;
 
 namespace MyFinance.Infrastructure.Repositories;
 
-internal class CategoryRepository : IBaseRepository<CategoriaTransacao>
+internal class CategoryRepository : ICategoryRepository
 {
-    public Task<CategoriaTransacao> CreateAsync(CategoriaTransacao entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public Task<IEnumerable<CategoriaTransacao>> GetAllAsync()
     {
         throw new NotImplementedException();
@@ -25,7 +15,17 @@ internal class CategoryRepository : IBaseRepository<CategoriaTransacao>
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(CategoriaTransacao entity)
+    public Task<CategoriaTransacao> CreateAsync(CategoriaTransacao categoria)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateAsync(CategoriaTransacao categoria)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteAsync(int id)
     {
         throw new NotImplementedException();
     }

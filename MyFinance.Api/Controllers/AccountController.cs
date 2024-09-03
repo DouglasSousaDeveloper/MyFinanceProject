@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyFinance.Application.Commands.Account;
+﻿using MyFinance.Application.Commands.Account;
 
 namespace MyFinance.Api.Controllers;
 

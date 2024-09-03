@@ -28,8 +28,7 @@ public static class InfrastructureModule
     }
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        services.AddKeyedScoped<IBaseRepository<CategoriaTransacao>, CategoryRepository>("category");
-        services.AddKeyedScoped<IBaseRepository<Conta>, AccountRepository>("account");
+        services.AddScoped<IAccountRepository, AccountRepository>();
 
         return services;
     }

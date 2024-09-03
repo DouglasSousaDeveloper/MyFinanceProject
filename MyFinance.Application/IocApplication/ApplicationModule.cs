@@ -7,7 +7,6 @@ public static class ApplicationModule
 {
     public static IServiceCollection AddCommands(this IServiceCollection services)
     {
-
         services.AddMediatR(config =>
                 config.RegisterServicesFromAssemblyContaining<UserCreateCommand>());
 

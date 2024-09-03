@@ -1,9 +1,27 @@
-﻿namespace MyFinance.Application.Commands.Account;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MyFinance.Core.Domains;
+using MyFinance.Infrastructure.Interfaces;
 
-internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result<string>>
+namespace MyFinance.Application.Commands.Account;
+
+internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result>
 {
-    public async Task<Result<string>> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
+    private readonly IAccountRepository _accountRepository;
+
+    public AccountCreateHandler(IAccountRepository accountRepository)
     {
-        throw new NotImplementedException();
+        _accountRepository = accountRepository;
+    }
+
+    public async Task<Result> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
+    {
+        Conta account = new()
+        {
+
+        };
+
+        await _accountRepository.CreateAsync(account);
+
+        return Result.Success();
     }
 }
