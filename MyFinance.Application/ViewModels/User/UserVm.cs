@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Application.ViewModels;
+﻿namespace MyFinance.Application.ViewModels.User;
 
 public class UserVm
 {

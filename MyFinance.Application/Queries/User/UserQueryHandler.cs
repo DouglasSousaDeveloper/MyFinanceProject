@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 using MediatR;
-using MyFinance.Application.ViewModels;
+using MyFinance.Application.ViewModels.User;
 
 namespace MyFinance.Application.Queries.User;
 
