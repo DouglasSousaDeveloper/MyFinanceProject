@@ -2,6 +2,6 @@
 
 namespace MyFinance.Application.Queries.Transaction;
 
-public class TransactionHistoryQuery : IRequest<Result<TransactionHistoryDto>>
+public class TransactionHistoryQuery : IRequest<Result<TransactionHistoryVm>>
 {
 }

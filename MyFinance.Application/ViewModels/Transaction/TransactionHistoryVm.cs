@@ -1,5 +1,6 @@
 ﻿namespace MyFinance.Application.ViewModels.Transaction;
 
-public class TransactionHistoryDto
+public class TransactionHistoryVm
 {
+
 }
