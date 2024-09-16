@@ -10,3 +10,4 @@ Este projeto é uma Web API desenvolvida em C# com o objetivo de aplicar e conso
 - **Testes Unitários** com XUnit
 - **Testes Integrados** com XUnit
 - **Dominios ricos**
+- **Result Pattern**
