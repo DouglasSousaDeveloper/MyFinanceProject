@@ -2,4 +2,5 @@
 
 public class CategoryCreateCommand : IRequest<Result<string>>
 {
+    public string nome { get; set; }
 }

@@ -1,32 +1,13 @@
-﻿using MyFinance.Core.Domains;
+﻿using Microsoft.EntityFrameworkCore;
 using MyFinance.Infrastructure.Interfaces;
+using MyFinance.Infrastructure.Repositories.Base;
 
 namespace MyFinance.Infrastructure.Repositories;
 
-internal class CategoryRepository : ICategoryRepository
+internal class CategoryRepository : BaseRepository<CategoriaTransacao, DbContext>, ICategoryRepository
 {
-    public Task<IEnumerable<CategoriaTransacao>> GetAllAsync()
+    public CategoryRepository()
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<CategoriaTransacao> GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<CategoriaTransacao> CreateAsync(CategoriaTransacao categoria)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateAsync(CategoriaTransacao categoria)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteAsync(int id)
-    {
-        throw new NotImplementedException();
+            
     }
 }

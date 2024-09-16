@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyFinance.Infrastructure.Interfaces.Base;
 
 namespace MyFinance.Infrastructure.Repositories.Base;
 
-public abstract class BaseRepository<TEntity, TContext> : IBaseRepository<TEntity> 
+public class BaseRepository<TEntity, TContext> : IBaseRepository<TEntity> 
     where TEntity : class 
     where TContext : DbContext
 {
@@ -14,34 +13,33 @@ public abstract class BaseRepository<TEntity, TContext> : IBaseRepository<TEntit
         _dbContext = dbContext;
     }
 
-    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _dbContext.Set<TEntity>().ToListAsync();
     }
 
-    public virtual async Task<TEntity> GetByIdAsync(int id)
+    public async Task<TEntity> GetByIdAsync(Guid id)
     {
         return await _dbContext.Set<TEntity>().FindAsync(id);
-
     }
 
-    public virtual async Task<TEntity> CreateAsync(TEntity entity)
+    public async Task<TEntity> CreateAsync(TEntity entity)
     {
         _dbContext.Set<TEntity>().Add(entity);
         await _dbContext.SaveChangesAsync();
         return entity;
     }
 
-    public virtual async Task UpdateAsync(TEntity entity)
+    public async Task UpdateAsync(TEntity entity)
     {
         _dbContext.Set<TEntity>().Update(entity);
         await _dbContext.SaveChangesAsync();
     }
 
-    public virtual async Task DeleteAsync(int id)
+    public async Task DeleteAsync(Guid id)
     {
         var entity = await _dbContext.Set<TEntity>().FindAsync(id);
-        if (entity != null)
+        if (entity is not null)
         {
             _dbContext.Set<TEntity>().Remove(entity);
             await _dbContext.SaveChangesAsync();

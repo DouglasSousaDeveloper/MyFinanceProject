@@ -14,12 +14,14 @@ internal class CategoryCreateHandler : IRequestHandler<CategoryCreateCommand, Re
 
     public async Task<Result<string>> Handle(CategoryCreateCommand request, CancellationToken cancellationToken)
     {
-        CategoriaTransacao category = new()
-        {
+        var category = CategoriaTransacao.CategoriaTransacaoFactory.CriarCategoria(
+            request.nome
+            );
 
-        };
+        if (category.IsFailure)
+            return Result.Failure<string>(category.Error);
 
-        await _categoryRepository.CreateAsync(category);
+        await _categoryRepository.CreateAsync(category.Value);
 
         return Result.Success("Categoria criada com sucesso!");
     }

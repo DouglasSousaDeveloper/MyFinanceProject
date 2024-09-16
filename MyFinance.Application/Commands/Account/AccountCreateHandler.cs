@@ -15,12 +15,16 @@ internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Resu
 
     public async Task<Result> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
     {
-        Conta account = new()
-        {
+        var account = Conta.ContaFactory.CriarConta(
+            request.Nome, request.Cpf,
+            request.Tipo, request.IntituicaoFinanceira,
+            request.Saldo
+            );
 
-        };
+        if (account.IsFailure)
+            return Result.Failure(account.Error);
 
-        await _accountRepository.CreateAsync(account);
+        await _accountRepository.CreateAsync(account.Value);
 
         return Result.Success();
     }
