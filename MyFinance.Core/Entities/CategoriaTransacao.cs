@@ -5,6 +5,8 @@ public class CategoriaTransacao : Base
     public string Nome { get; private set; } = string.Empty;
     public ICollection<SubCategoriaTransacao> SubCategoria { get; set; } = new Collection<SubCategoriaTransacao>();
 
+    private CategoriaTransacao() { }
+
     public static class CategoriaTransacaoFactory
     {
         public static Result<CategoriaTransacao> CriarCategoria(string nome)

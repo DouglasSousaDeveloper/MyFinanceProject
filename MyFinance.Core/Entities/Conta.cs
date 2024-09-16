@@ -9,6 +9,8 @@ public class Conta : Base
     public decimal Saldo { get; private set; } = decimal.Zero;
     public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
 
+    private Conta() { }
+
     public static class ContaFactory
     {
         public static Result<Conta> CriarConta(string nome, string cpf, string tipo, string instituicaoFinanceira, decimal saldoInicial)
