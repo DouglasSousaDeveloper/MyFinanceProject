@@ -6,8 +6,7 @@ namespace MyFinance.Infrastructure.Repositories;
 
 internal class CategoryRepository : BaseRepository<CategoriaTransacao, DbContext>, ICategoryRepository
 {
-    public CategoryRepository()
+    public CategoryRepository(DbContext dbContext) : base(dbContext)
     {
-            
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace MyFinance.Core.Domains;
+﻿namespace MyFinance.Core.Domains;
 
 public class CategoriaTransacao : Base
 {

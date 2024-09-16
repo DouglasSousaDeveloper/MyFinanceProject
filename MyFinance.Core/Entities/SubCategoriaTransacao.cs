@@ -1,6 +1,4 @@
-﻿using MyFinance.Core.Domains.BaseDomain;
-
-namespace MyFinance.Core.Domains;
+﻿namespace MyFinance.Core.Domains;
 
 public class SubCategoriaTransacao : Base
 {
