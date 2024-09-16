@@ -9,3 +9,4 @@ Este projeto é uma Web API desenvolvida em C# com o objetivo de aplicar e conso
 - **Entity Framework Core**
 - **Testes Unitários** com XUnit
 - **Testes Integrados** com XUnit
+- **Dominios ricos**
