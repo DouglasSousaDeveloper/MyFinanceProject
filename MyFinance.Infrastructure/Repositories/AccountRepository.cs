@@ -22,7 +22,7 @@ internal class AccountRepository : IAccountRepository
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(int id)
+    public Task<int> DeleteAsync(Guid id)
     {
         throw new NotImplementedException();
     }

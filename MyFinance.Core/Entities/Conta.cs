@@ -9,7 +9,7 @@ public class Conta : Base
     public decimal Saldo { get; private set; } = decimal.Zero;
     public List<Transacao> Transacoes { get; set; } = new List<Transacao>();
 
-    private Conta() { }
+    public Conta() { }
 
     public static class ContaFactory
     {
@@ -43,29 +43,30 @@ public class Conta : Base
             return Result.Success(conta);
         }
 
-        public static Result AtualizarConta(Conta conta, string nome, string cpf, string tipo, string instituicaoFinanceira, decimal saldo)
+        public static Result<Guid> ExcluirConta(string id, string nome, string cpf, string tipo, string instituicaoFinanceira, decimal saldo)
         {
-            if (string.IsNullOrWhiteSpace(nome))
-                return Result.Failure("O nome da conta não pode ser vazio.");
+            if (string.IsNullOrWhiteSpace(id))
+                return Result.Failure<Guid>("O ID não pode ser vazio.");
 
             if (string.IsNullOrWhiteSpace(cpf))
-                return Result.Failure<Conta>("O cpf não pode ser vazio.");
+                return Result.Failure<Guid>("O cpf não pode ser vazio.");
 
             if (string.IsNullOrWhiteSpace(tipo))
-                return Result.Failure("O tipo da conta não pode ser vazio.");
+                return Result.Failure<Guid>("O tipo da conta não pode ser vazio.");
 
             if (string.IsNullOrWhiteSpace(instituicaoFinanceira))
-                return Result.Failure("A instituição financeira não pode ser vazia.");
+                return Result.Failure<Guid>("A instituição financeira não pode ser vazia.");
 
-            if (saldo < 0)
-                return Result.Failure("O saldo não pode ser negativo.");
+            if (saldo != 0)
+                return Result.Failure<Guid>("O saldo tem que ser negativo.");
 
+            Conta conta = new Conta();
             conta.Nome = nome;
             conta.Tipo = tipo;
             conta.InstituicaoFinanceira = instituicaoFinanceira;
             conta.Saldo = saldo;
 
-            return Result.Success();
+            return Result.Success(conta.Id);
         }
     }
 }
