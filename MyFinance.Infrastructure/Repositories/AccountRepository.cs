@@ -1,7 +1,4 @@
-﻿using MyFinance.Core.Domains;
-using MyFinance.Infrastructure.Interfaces;
-
-namespace MyFinance.Infrastructure.Repositories;
+﻿namespace MyFinance.Infrastructure.Repositories;
 
 internal class AccountRepository : IAccountRepository
 {

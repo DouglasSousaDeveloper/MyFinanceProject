@@ -1,4 +1,4 @@
-﻿namespace MyFinance.Core.Domains;
+﻿namespace MyFinance.Core.Entities;
 
 public class CategoriaTransacao : Base
 {

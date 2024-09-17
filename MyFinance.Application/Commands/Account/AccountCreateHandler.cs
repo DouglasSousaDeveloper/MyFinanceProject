@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MyFinance.Core.Domains;
-using MyFinance.Infrastructure.Interfaces;
-
-namespace MyFinance.Application.Commands.Account;
+﻿namespace MyFinance.Application.Commands.Account;
 
 internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result>
 {

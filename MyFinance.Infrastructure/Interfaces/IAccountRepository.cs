@@ -1,4 +1,4 @@
-﻿using MyFinance.Core.Domains;
+﻿using MyFinance.Core.Entities;
 
 namespace MyFinance.Infrastructure.Interfaces;
 
