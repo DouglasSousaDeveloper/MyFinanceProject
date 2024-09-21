@@ -1,7 +1,6 @@
 ﻿namespace MyFinance.Infrastructure.Interfaces;
 
-public interface IAccountRepository
+public interface IAccountRepository : IBaseRepository<Conta>
 {
-    Task<Conta> CreateAsync(Conta conta);
-    Task<int> DeleteAsync(Guid id);
+    
 }

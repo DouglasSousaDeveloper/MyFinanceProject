@@ -1,29 +1,11 @@
-﻿namespace MyFinance.Infrastructure.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using MyFinance.Infrastructure.Repositories.Base;
 
-internal class AccountRepository : IAccountRepository
+namespace MyFinance.Infrastructure.Repositories;
+
+internal class AccountRepository : BaseRepository<Conta, DbContext>, IAccountRepository
 {
-    public Task<IEnumerable<Conta>> GetAllAsync()
+    public AccountRepository(DbContext dbContext) : base(dbContext)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<Conta> GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Conta> CreateAsync(Conta conta)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateAsync(Conta conta)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<int> DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
     }
 }

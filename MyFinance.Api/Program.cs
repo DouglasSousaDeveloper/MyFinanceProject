@@ -14,6 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddFluentEmail("douglas.santos.developer@gmail.com")
+                .AddRazorRenderer()
+                .AddSmtpSender("localhost", 25);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
