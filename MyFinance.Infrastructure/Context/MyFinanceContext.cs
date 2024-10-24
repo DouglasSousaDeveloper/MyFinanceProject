@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MyFinance.Application.Context;
+namespace MyFinance.Infrastructure.Context;
 
 public class MyFinanceContext : DbContext
 {

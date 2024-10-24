@@ -1,6 +1,8 @@
-﻿namespace MyFinance.Infrastructure.Interfaces;
+﻿using MyFinance.Infrastructure.Interfaces.Generic;
 
-public interface ICategoryRepository : IBaseRepository<CategoriaTransacao>
+namespace MyFinance.Infrastructure.Interfaces;
+
+public interface ICategoryRepository : IGenericRepository<CategoriaTransacao>
 {
 
 }

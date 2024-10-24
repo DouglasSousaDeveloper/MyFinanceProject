@@ -1,6 +1,8 @@
-﻿namespace MyFinance.Infrastructure.Interfaces;
+﻿using MyFinance.Infrastructure.Interfaces.Generic;
 
-public interface IAccountRepository : IBaseRepository<Conta>
+namespace MyFinance.Infrastructure.Interfaces;
+
+public interface IAccountRepository : IGenericRepository<Conta>
 {
     
 }

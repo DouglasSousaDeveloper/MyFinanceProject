@@ -1,12 +1,14 @@
-﻿namespace MyFinance.Application.Commands.Account;
+﻿using MyFinance.Infrastructure.Context;
+
+namespace MyFinance.Application.Commands.Account;
 
 internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result>
 {
-    private readonly IAccountRepository _accountRepository;
+    private IUnitOfWork _unitOfWork;
 
-    public AccountCreateHandler(IAccountRepository accountRepository)
+    public AccountCreateHandler(IUnitOfWork unitOfWork)
     {
-        _accountRepository = accountRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<Result> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
@@ -20,7 +22,7 @@ internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Resu
         if (account.IsFailure)
             return Result.Failure(account.Error);
 
-        await _accountRepository.CreateAsync(account.Value);
+        await _unitOfWork.Account.CreateAsync(account.Value);
 
         return Result.Success();
     }

@@ -1,15 +1,12 @@
-﻿using MyFinance.Core.Domains;
-using MyFinance.Infrastructure.Interfaces;
-
-namespace MyFinance.Application.Commands.Category;
+﻿namespace MyFinance.Application.Commands.Category;
 
 internal class CategoryCreateHandler : IRequestHandler<CategoryCreateCommand, Result<string>>
 {
-    public readonly ICategoryRepository _categoryRepository;
+    private IUnitOfWork _unitOfWork;
 
-    public CategoryCreateHandler(ICategoryRepository categoryRepository)
+    public CategoryCreateHandler(IUnitOfWork unitOfWork)
     {
-        _categoryRepository = categoryRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<Result<string>> Handle(CategoryCreateCommand request, CancellationToken cancellationToken)
@@ -21,7 +18,7 @@ internal class CategoryCreateHandler : IRequestHandler<CategoryCreateCommand, Re
         if (category.IsFailure)
             return Result.Failure<string>(category.Error);
 
-        await _categoryRepository.CreateAsync(category.Value);
+        await _unitOfWork.Category.CreateAsync(category.Value);
 
         return Result.Success("Categoria criada com sucesso!");
     }

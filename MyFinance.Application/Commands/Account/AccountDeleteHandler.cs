@@ -1,22 +1,23 @@
 ﻿using FluentEmail.Core;
 using MyFinance.Core.Utils;
+using MyFinance.Infrastructure.Context;
 
 namespace MyFinance.Application.Commands.Account;
 
 internal class AccountDeleteHandler : IRequestHandler<AccountDeleteCommand, Result>
 {
-    private readonly IAccountRepository _accountRepository;
+    private IUnitOfWork _unitOfWork;
     private readonly IFluentEmail _fluentEmail;
 
-    public AccountDeleteHandler(IAccountRepository accountRepository, IFluentEmail fluentEmail)
+    public AccountDeleteHandler(IUnitOfWork unitOfWork, IFluentEmail fluentEmail)
     {
-        _accountRepository = accountRepository;
+        _unitOfWork = unitOfWork;
         _fluentEmail = fluentEmail;
     }
 
     public async Task<Result> Handle(AccountDeleteCommand request, CancellationToken cancellationToken)
     {
-        var accountById = await _accountRepository.GetByIdAsync(Guid.Parse(request.Id));
+        var accountById = await _unitOfWork.Account.GetByIdAsync(Guid.Parse(request.Id));
 
         if (accountById is null)
             return Result.Failure("Id não existe.");
@@ -30,7 +31,7 @@ internal class AccountDeleteHandler : IRequestHandler<AccountDeleteCommand, Resu
         if (account.IsFailure)
             return Result.Failure(account.Error);
 
-        await _accountRepository.DeleteAsync(account.Value);
+        await _unitOfWork.Account.DeleteAsync(account.Value);
 
         await SendEmail.Send(_fluentEmail, "douglas_vdlk&@hotmail.com", $"Sua conta no {request.IntituicaoFinanceira} foi cancelada com sucesso.");
 
