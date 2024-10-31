@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFinance.Infrastructure", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5640B8F4-45F3-451D-B91B-F3613DC42054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.UnitTests", "MyFinance.UnitTests\MyFinance.UnitTests.csproj", "{D11B90AF-9EF9-4806-9586-32D4FD4EA704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFinance.UnitTests", "MyFinance.UnitTests\MyFinance.UnitTests.csproj", "{D11B90AF-9EF9-4806-9586-32D4FD4EA704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFinance.IntegratedTests", "MyFinance.IntegratedTests\MyFinance.IntegratedTests.csproj", "{ADB957D1-523F-4A4D-85A7-E6C9A08B5131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFinance.IntegratedTests", "MyFinance.IntegratedTests\MyFinance.IntegratedTests.csproj", "{ADB957D1-523F-4A4D-85A7-E6C9A08B5131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

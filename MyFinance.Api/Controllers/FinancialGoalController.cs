@@ -4,6 +4,6 @@ namespace MyFinance.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class GoalController : ControllerBase
+public class FinancialGoalController : ControllerBase
 {
 }

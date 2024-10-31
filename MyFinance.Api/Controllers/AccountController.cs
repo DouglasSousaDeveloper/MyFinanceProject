@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyFinance.Application.Commands.Account;
+﻿using MyFinance.Application.Commands.Account;
 
 namespace MyFinance.Api.Controllers;
 
@@ -15,13 +14,24 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateAccount(AccountCreateCommand userCommand)
+    public async Task<IActionResult> CreateAccount(AccountCreateCommand createCommand)
     {
-        var result = await _mediator.Send(userCommand);
+        var result = await _mediator.Send(createCommand);
 
         if (result.IsFailure)
             return BadRequest(result.Error ?? "error");
 
         return Ok();
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteAccount(AccountDeleteCommand deleteCommand)
+    {
+        var result = await _mediator.Send(deleteCommand);
+
+        if(result.IsFailure)
+            return BadRequest(result.Error ?? "error");
+
+        return NoContent();
     }
 }

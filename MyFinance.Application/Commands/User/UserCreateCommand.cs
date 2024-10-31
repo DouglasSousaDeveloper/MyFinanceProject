@@ -1,4 +1,6 @@
-﻿namespace MyFinance.Application.Commands.User;
+﻿using MyFinance.Application.ViewModels.User;
+
+namespace MyFinance.Application.Commands.User;
 
 public class UserCreateCommand : IRequest<Result<UserVm>>
 {

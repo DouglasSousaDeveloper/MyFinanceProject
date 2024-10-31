@@ -1,9 +1,29 @@
-﻿namespace MyFinance.Application.Commands.Account;
+﻿using MyFinance.Infrastructure.Context;
 
-internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result<string>>
+namespace MyFinance.Application.Commands.Account;
+
+internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Result>
 {
-    public async Task<Result<string>> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
+    private IUnitOfWork _unitOfWork;
+
+    public AccountCreateHandler(IUnitOfWork unitOfWork)
     {
-        throw new NotImplementedException();
+        _unitOfWork = unitOfWork;
+    }
+
+    public async Task<Result> Handle(AccountCreateCommand request, CancellationToken cancellationToken)
+    {
+        var account = Conta.ContaFactory.CriarConta(
+            request.Nome, request.Cpf,
+            request.Tipo, request.IntituicaoFinanceira,
+            request.Saldo
+            );
+
+        if (account.IsFailure)
+            return Result.Failure(account.Error);
+
+        await _unitOfWork.Account.AddAsync(account.Value);
+
+        return Result.Success();
     }
 }
