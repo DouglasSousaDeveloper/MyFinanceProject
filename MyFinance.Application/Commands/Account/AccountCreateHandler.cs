@@ -22,7 +22,7 @@ internal class AccountCreateHandler : IRequestHandler<AccountCreateCommand, Resu
         if (account.IsFailure)
             return Result.Failure(account.Error);
 
-        await _unitOfWork.Account.CreateAsync(account.Value);
+        await _unitOfWork.Account.AddAsync(account.Value);
 
         return Result.Success();
     }

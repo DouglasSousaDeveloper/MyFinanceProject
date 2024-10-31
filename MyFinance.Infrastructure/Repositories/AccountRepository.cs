@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyFinance.Infrastructure.Repositories.Base;
+﻿using MyFinance.Infrastructure.Context;
+using MyFinance.Infrastructure.Repositories.Generic;
 
 namespace MyFinance.Infrastructure.Repositories;
 
-internal class AccountRepository : BaseRepository<Conta, DbContext>, IAccountRepository
+internal class AccountRepository : GenericRepository<Conta>, IAccountRepository
 {
-    public AccountRepository(DbContext dbContext) : base(dbContext)
+    public AccountRepository(MyFinanceContext dbContext) : base(dbContext)
     {
     }
 }

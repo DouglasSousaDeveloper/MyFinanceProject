@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MyFinance.Infrastructure.Interfaces;
-using MyFinance.Infrastructure.Repositories.Base;
+﻿using MyFinance.Infrastructure.Context;
+using MyFinance.Infrastructure.Repositories.Generic;
 
 namespace MyFinance.Infrastructure.Repositories;
 
-internal class CategoryRepository : BaseRepository<CategoriaTransacao, DbContext>, ICategoryRepository
+internal class CategoryRepository : GenericRepository<CategoriaTransacao>, ICategoryRepository
 {
-    public CategoryRepository(DbContext dbContext) : base(dbContext)
+    public CategoryRepository(MyFinanceContext dbContext) : base(dbContext)
     {
     }
 }

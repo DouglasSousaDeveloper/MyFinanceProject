@@ -18,7 +18,7 @@ internal class CategoryCreateHandler : IRequestHandler<CategoryCreateCommand, Re
         if (category.IsFailure)
             return Result.Failure<string>(category.Error);
 
-        await _unitOfWork.Category.CreateAsync(category.Value);
+        await _unitOfWork.Category.AddAsync(category.Value);
 
         return Result.Success("Categoria criada com sucesso!");
     }

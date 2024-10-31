@@ -1,10 +1,12 @@
-﻿namespace MyFinance.Infrastructure.Interfaces.Generic;
+﻿using System.Linq.Expressions;
+
+namespace MyFinance.Infrastructure.Interfaces.Generic;
 
 public interface IGenericRepository<T> where T : class
 {
-    Task<IEnumerable<T>> GetAllAsync();
+    Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null);
     Task<T> GetByIdAsync(Guid id);
-    Task<T> CreateAsync(T entity);
+    Task AddAsync(T entity);
     Task UpdateAsync(T entity);
     Task DeleteAsync(Guid id);
 }
