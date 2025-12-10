@@ -6,5 +6,5 @@ namespace MyFinance.Api.Controllers;
 [Route("[controller]")]
 public class DebtController : ControllerBase
 {
-
+    //TODO
 }
